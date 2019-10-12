@@ -32,6 +32,11 @@ module.exports = (query) =>
             }
         }
 
+        if (query.hasOwnProperty('emission_index'))
+        {
+            response['emission_index'] = query['emission_index'];
+        }
+
         return response;
     })
     .catch((err) =>
