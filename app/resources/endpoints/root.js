@@ -1,20 +1,20 @@
-// const path = require("path");
+// const path = require('path');
 
 module.exports = (router) =>
 {
     // ROOT ENDPOINT
-    /*router.get("/", (req, res) =>
+    /*router.get('/', (req, res) =>
     {
-        res.sendFile(path.join(__dirname + "/../../../public/index.html"));
+        res.sendFile(path.join(__dirname + '/../../../public/index.html'));
     });
     
-    router.get("/images/favicon.png", (req, res) =>
+    router.get('/images/favicon.png', (req, res) =>
     {
-        res.sendFile(path.join(__dirname + "/../../../public/images/favicon.png"));
+        res.sendFile(path.join(__dirname + '/../../../public/images/favicon.png'));
     });
     
-    router.get("/images/logo.png", (req, res) =>
+    router.get('/images/logo.png', (req, res) =>
     {
-        res.sendFile(path.join(__dirname + "/../../../public/images/logo.png"));
+        res.sendFile(path.join(__dirname + '/../../../public/images/logo.png'));
     });*/
 };
