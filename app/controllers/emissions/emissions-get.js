@@ -12,15 +12,18 @@ module.exports = (query) =>
 
     return request(options).then((res) =>
     {
+        /* Execute core program for CO2 emissions calculation */
         const coreOutput = child_process.execSync(process.env.CORE_PROCESS_PATH,
         {
             input: JSON.stringify(res),
-            encoding: 'ascii'
+            encoding: 'utf-8'
         });
         
+        /* Parse core program JSON output */
         const response = JSON.parse(coreOutput);
         const success = HttpStatusCode.ok(response['status']);
 
+        /* Add success status keys as keys to core program response */
         for (const key in success)
         {
             if (success.hasOwnProperty(key))
@@ -33,7 +36,7 @@ module.exports = (query) =>
     })
     .catch((err) =>
     {
-        const response = HttpStatusCode.internalServerError('error while requesting route to route provider');
+        const response = HttpStatusCode.internalServerError(`error while requesting route to route provider: ${err}`);
         return response;
     });
 };

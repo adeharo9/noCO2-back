@@ -1,11 +1,11 @@
 class HttpStatusCode
 {
-    // 1xx Informational
+    /* 1xx Informational */
     static continue                         (description) { return this.genericStatusCode(100, 'Continue'                            , description); }
     static switchingProtocols               (description) { return this.genericStatusCode(101, 'Switching Protocols'                 , description); }
     static processing                       (description) { return this.genericStatusCode(102, 'Processing'                          , description); }
 
-    // 2xx Success
+    /* 2xx Success */
     static ok                               (description) { return this.genericStatusCode(200, 'OK'                                  , description); }
     static created                          (description) { return this.genericStatusCode(201, 'Created'                             , description); }
     static accepted                         (description) { return this.genericStatusCode(202, 'Accepted'                            , description); }
@@ -17,7 +17,7 @@ class HttpStatusCode
     static alreadyReported                  (description) { return this.genericStatusCode(208, 'Already Reported'                    , description); }
     static imUsed                           (description) { return this.genericStatusCode(226, 'IM Used'                             , description); }
 
-    // 3xx Redirection
+    /* 3xx Redirection */
     static multipleChoices                  (description) { return this.genericStatusCode(300, 'Multiple Choices'                    , description); }
     static movedPermanently                 (description) { return this.genericStatusCode(301, 'Moved Permanently'                   , description); }
     static found                            (description) { return this.genericStatusCode(302, 'Found'                               , description); }
@@ -27,7 +27,7 @@ class HttpStatusCode
     static temporaryRedirect                (description) { return this.genericStatusCode(307, 'Temporary Redirect'                  , description); }
     static permanentRedirect                (description) { return this.genericStatusCode(308, 'Permanent Redirect'                  , description); }
 
-    // 4xx Client Error
+    /* 4xx Client Error */
     static badRequest                       (description) { return this.genericStatusCode(400, 'Bad Request'                         , description); }
     static unauthorized                     (description) { return this.genericStatusCode(401, 'Unauthorized'                        , description); }
     static paymentRequired                  (description) { return this.genericStatusCode(402, 'Payment Required'                    , description); }
@@ -62,7 +62,7 @@ class HttpStatusCode
     static unavailableForLegalReasons       (description) { return this.genericStatusCode(451, 'Unavailable For Legal Reasons'       , description); }
     static clientClosedRequest              (description) { return this.genericStatusCode(499, 'Client Closed Request'               , description); }
 
-    // 5xx Server Error
+    /* 5xx Server Error */
     static internalServerError              (description) { return this.genericStatusCode(500, 'Internal Server Error'               , description); }
     static notImplemented                   (description) { return this.genericStatusCode(501, 'Not Implemented'                     , description); }
     static badGateway                       (description) { return this.genericStatusCode(502, 'Bad Gateway'                         , description); }
@@ -78,7 +78,7 @@ class HttpStatusCode
     static networkReadTimeoutError          (description) { return this.genericStatusCode(598, 'Network read timeout error'          , description); }
     static networkConnectTimeoutError       (description) { return this.genericStatusCode(599, 'Network connect timeout error'       , description); }
 
-    // Generic methods
+    /* Generic methods */
     static genericStatusCode (code, name, description)
     { 
         const res = 

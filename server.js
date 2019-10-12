@@ -1,5 +1,5 @@
-// noCO2 project
-// Dependencies
+/* noCO2 project */
+/* Dependencies */
 require('dotenv').config({ silent: true });
 
 const cors       = require('cors');
@@ -7,18 +7,18 @@ const http       = require('http');
 const express    = require('express');
 const bodyParser = require('body-parser');
 
-// Initialize and configure app
+/* Initialize and configure app */
 const app = express();
 
 app.use(cors({origin: '*'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Initialize endpoints
+/* Initialize endpoints */
 const routes = require('./app/resources/routes');
 app.use('/', routes);
 
-// Start server
+/* Start server */
 let serverHttp;
 
 if (process.env.ENV == 'prd')
