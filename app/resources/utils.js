@@ -1,5 +1,6 @@
 module.exports =
 {
+    /* Generic endpoint handler */
     endpointHandler: (promise, res) =>
     {
         promise.then((data) =>
