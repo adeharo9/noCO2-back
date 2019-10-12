@@ -2,8 +2,6 @@ const request = require('request-promise');
 const child_process = require('child_process');
 const HttpStatusCode  = require('../../resources/http-status-code');
 
-const baseURL = 'https://maps.googleapis.com/maps/api/directions/json';
-
 module.exports = (query) =>
 {
     const options = {
@@ -14,13 +12,13 @@ module.exports = (query) =>
 
     return request(options).then((res) =>
     {
-        let coreOutput;
-        child_process.execSync(process.env.CORE_PROCESS_PATH,
+        const coreOutput = child_process.execSync(process.env.CORE_PROCESS_PATH,
         {
-            stdio: [JSON.stringify(res), process.stdout, process.stderr]
+            input: JSON.stringify(res),
+            encoding: 'ascii'
         });
         
-        const response = coreOutput;
+        const response = JSON.parse(coreOutput);
         const success = HttpStatusCode.ok(response['status']);
 
         for (const key in success)
