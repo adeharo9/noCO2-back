@@ -4,6 +4,13 @@ const HttpStatusCode  = require('../../resources/http-status-code');
 
 module.exports = (query) =>
 {
+    let emission_index = null;
+    if (query.hasOwnProperty('emission_index'))
+    {
+        emission_index = query['emission_index'];
+        delete query['emission_index'];
+    }
+    
     const options = {
         uri: process.env.ROUTE_PROVIDER_BASE_URL,
         qs: query,
@@ -32,9 +39,9 @@ module.exports = (query) =>
             }
         }
 
-        if (query.hasOwnProperty('emission_index'))
+        if (emission_index !== null)
         {
-            response['emission_index'] = query['emission_index'];
+            response['emission_index'] = emission_index;
         }
 
         return response;
