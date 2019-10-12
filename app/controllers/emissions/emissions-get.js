@@ -19,6 +19,11 @@ module.exports = (query) =>
 
     return request(options).then((res) =>
     {
+        if (emission_index !== null)
+        {
+            res['emission_index'] = emission_index;
+        }
+
         /* Execute core program for CO2 emissions calculation */
         const coreOutput = child_process.execSync(process.env.CORE_PROCESS_PATH,
         {
@@ -37,11 +42,6 @@ module.exports = (query) =>
             {
                 response[key] = success[key];
             }
-        }
-
-        if (emission_index !== null)
-        {
-            response['emission_index'] = emission_index;
         }
 
         return response;
