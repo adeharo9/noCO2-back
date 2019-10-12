@@ -2,11 +2,11 @@
   "name": "noco2-back",
   "version": "0.1.0",
   "description": "Backend for noCO2 project",
-  "main": "server.js",
+  "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js > log.out 2> log.err &",
-    "start-dev": "nodemon --inspect server.js --dev"
+    "start": "node api.js > log.out 2> log.err &",
+    "start-dev": "nodemon --inspect api.js --dev"
   },
   "repository": {
     "type": "git",
